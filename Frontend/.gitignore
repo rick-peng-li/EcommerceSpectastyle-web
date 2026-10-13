@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 .env.local
+.env.*.local
 VITE_SITE_KEY
 
 # Editor directories and files
@@ -24,3 +25,6 @@ VITE_SITE_KEY
 *.njsproj
 *.sln
 *.sw?
+
+# VS Code 搜索导出
+*.code-search

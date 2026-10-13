@@ -1,4 +1,3 @@
-/* Existing CSS */
 * {
     margin: 0;
     padding: 0;
@@ -6,13 +5,15 @@
 }
 
 .outer-products {
-    border: 2px solid rgb(10, 10, 10);
-    height: 106%;
-    width: 445%;
-    position: absolute;
-    left: 105%;
-    top: -8%;
+    position: fixed;
+    left: 18%;
+    top: 10vh;
+    width: 82%;
+    min-height: 90vh;
     background-color: rgb(10, 10, 10);
+    padding: 2rem;
+    overflow-y: auto;
+    z-index: 1;
 }
 
 .outer-products h1 {
@@ -21,21 +22,21 @@
     text-transform: uppercase;
 }
 
-/* New CSS for the form */
 .product-form {
-    max-width: 400px;
-    margin: 0 auto;
+    max-width: 500px;
+    margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
+    background-color: rgb(20, 20, 20);
+    border: 1px solid rgb(60, 60, 60);
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .product-form h2 {
     font-size: 1.5rem;
     margin-bottom: 20px;
     text-align: center;
+    color: white;
 }
 
 .form-group {
@@ -43,9 +44,10 @@
 }
 
 .form-group label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white;
 }
 
 .form-group input[type="date"],
@@ -54,20 +56,20 @@
 .form-group textarea,
 .form-group select {
     width: 100%;
-    padding: 5px;
-    border: 1px solid #ccc;
+    padding: 8px;
+    border: 1px solid rgb(60, 60, 60);
     border-radius: 5px;
     font-size: 1rem;
-    background-color: black;
-    color: whitesmoke;
+    background-color: rgb(15, 15, 15);
+    color: white;
 }
 
 .form-group textarea {
     width: 100%;
-    max-width: 356px;
+    max-width: 100%;
     height: 60px;
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 8px;
+    border: 1px solid rgb(60, 60, 60);
     border-radius: 5px;
     font-size: 1rem;
     resize: none;
@@ -77,23 +79,22 @@
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    padding: 10px 30px 10px 10px;
-    background: url("down-arrow.png") no-repeat right #fff;
-    background-size: 20px;
-    background-color: #000000;
+    padding: 8px;
+    background-color: rgb(15, 15, 15);
+    color: white;
 }
 
-.form-group button[type="submit"], 
+.form-group button[type="submit"],
 .form-group button[type="button"] {
-    background-color: #000000;
+    background-color: rgb(78, 70, 182);
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    font-size: 1rem;    
+    font-size: 1rem;
     cursor: pointer;
 }
 
 .form-group button[type="submit"]:hover {
-    background-color: #353a40;
+    background-color: rgb(60, 52, 150);
 }

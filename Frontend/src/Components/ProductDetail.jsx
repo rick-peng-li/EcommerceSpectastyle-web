@@ -31,7 +31,7 @@ const ProductDetail = ({ productId, onClose }) => {
   useEffect(() => {
     axios
       .get(
-        `https://ecommerce-backend-0wr7.onrender.com/ecommerce/product/products/${productId}`
+        `${import.meta.env.VITE_backendUrl}/ecommerce/product/products/${productId}`
       )
       .then((response) => {
         const productData = response.data;
@@ -54,7 +54,7 @@ const ProductDetail = ({ productId, onClose }) => {
       const userId = userData._id;
       axios
         .post(
-          `https://ecommerce-backend-0wr7.onrender.com/ecommerce/product/addProductToCart/${userId}`,
+          `${import.meta.env.VITE_backendUrl}/ecommerce/product/addProductToCart/${userId}`,
           { productId: product._id }
         )
         .then(() => {

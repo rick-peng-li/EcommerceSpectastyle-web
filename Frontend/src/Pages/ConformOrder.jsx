@@ -21,7 +21,7 @@ const ConformOrder = () => {
     
     const userId = userData._id;
     try {
-      const apiUrl = `https://ecommerce-backend-0wr7.onrender.com/ecommerce/user-address/getAddresses/${userId}`;
+      const apiUrl = `${import.meta.env.VITE_backendUrl}/ecommerce/user-address/getAddresses/${userId}`;
       const response = await axios.get(apiUrl);
       if (response.status === 200) {
         console.log(response.data);
@@ -47,7 +47,7 @@ const ConformOrder = () => {
       return;
     }
 
-    const apiUrl = `https://ecommerce-backend-0wr7.onrender.com/ecommerce/product/shopping-cart/${userId}`;
+    const apiUrl = `${import.meta.env.VITE_backendUrl}/ecommerce/product/shopping-cart/${userId}`;
 
     axios
       .get(apiUrl)
@@ -76,7 +76,7 @@ const ConformOrder = () => {
     };
 
     axios
-      .post("https://ecommerce-backend-0wr7.onrender.com/checkout", payload)
+      .post(`${import.meta.env.VITE_backendUrl}/checkout`, payload)
       .then((response) => {
         console.log("POST request response:", response.data);
 

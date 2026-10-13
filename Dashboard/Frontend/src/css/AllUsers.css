@@ -5,13 +5,15 @@
 }
 
 .outer-AllUsers {
-  border: 2px solid rgb(10, 10, 10);
-  height: 106%;
-  width: 445%;
-  position: absolute;
-  left: 105%;
-  top: -8%;
+  position: fixed;
+  left: 18%;
+  top: 10vh;
+  width: 82%;
+  min-height: 90vh;
   background-color: rgb(10, 10, 10);
+  padding: 2rem;
+  overflow-y: auto;
+  z-index: 1;
 }
 
 .outer-AllUsers h1 {
@@ -20,39 +22,46 @@
   text-transform: uppercase;
 }
 
-.table-allusers {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px; 
-  border: 1px solid #ddd;
-  position: relative;
-  left: 35rem;
+.user-list {
+  color: white;
 }
 
+.user-list h2 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.table-allusers {
+  width: 90%;
+  border-collapse: collapse;
+  margin: 20px auto;
+  border: 1px solid rgb(60, 60, 60);
+  position: relative;
+}
 
 thead {
-  background-color: #000000;
+  background-color: rgb(20, 20, 20);
   color: whitesmoke;
-  border: 5px solid whitesmoke;
 }
+
 tbody {
-  border: 5px solid whitesmoke;
+  border: 1px solid rgb(60, 60, 60);
 }
 
 th {
   padding: 12px;
   text-align: center;
+  border: 1px solid rgb(60, 60, 60);
 }
 
 td {
   padding: 12px;
   vertical-align: top;
-  border: 3px solid whitesmoke;
-  background-color: black;
+  border: 1px solid rgb(60, 60, 60);
+  background-color: rgb(15, 15, 15);
   color: whitesmoke;
 }
 
-tbody {
-  margin-top: 10px;
-  background-color: #f0f0f0;
+tr:nth-child(even) {
+  background-color: rgb(20, 20, 20);
 }

@@ -21,7 +21,7 @@ const Product = () => {
 
   useEffect(() => {
     axios
-      .get("https://ecommerce-backend-0wr7.onrender.com/ecommerce/product")
+      .get(`${import.meta.env.VITE_backendUrl}/ecommerce/product`)
       .then((response) => {
         setProducts(response.data);
         const uniqueCategories = Array.from(

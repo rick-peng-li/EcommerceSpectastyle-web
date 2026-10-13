@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../CSS/feedback.css";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const FeedbackModal = () => {
   useEffect(() => {
@@ -28,7 +30,7 @@ const FeedbackModal = () => {
     setFeedback(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formData = {
@@ -37,18 +39,40 @@ const FeedbackModal = () => {
       rating,
       feedback,
     };
-    console.log(formData);
 
-    // Example submission handling
-    setIsSubmitted(true);
-    window.alert("Thank you for your feedback!");
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setRating(null);
-      setName("");
-      setEmail("");
-      setFeedback("");
-    });
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_backendUrl}/ecommerce/feedback`,
+        formData
+      );
+      if (response.status === 201) {
+        setIsSubmitted(true);
+        toast("Thank you for your feedback!", {
+          icon: "🎉",
+          style: {
+            borderRadius: "rgb(189, 224, 254)",
+            background: "rgb(70, 11, 70)",
+            color: "rgb(255, 210, 255)",
+          },
+        });
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setRating(null);
+          setName("");
+          setEmail("");
+          setFeedback("");
+        }, 2000);
+      }
+    } catch (error) {
+      toast("Failed to submit feedback. Please try again.", {
+        icon: "😢",
+        style: {
+          borderRadius: "rgb(189, 224, 254)",
+          background: "rgb(70, 11, 70)",
+          color: "rgb(255, 210, 255)",
+        },
+      });
+    }
   };
 
   return (

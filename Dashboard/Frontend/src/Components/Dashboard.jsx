@@ -26,7 +26,6 @@ const Dashboard = () => {
     setShowDropdown(!showDropdown);
   };
 
-
   const toggleRegistration = () => {
     setShowRegistration(!showRegistration);
     setAllusers(false)
@@ -64,139 +63,77 @@ const Dashboard = () => {
     setShowRegistration(false)
     setAllusers(false)
     setAlltransition(false);
-    setmanagerlogin(false)
+    setmanagerlogin(false);
   }
-
-
 
   return (
     <div className="Container">
       <nav>
-        <h1><WarehouseIcon />&nbsp;WAREHOUSE&nbsp;<WarehouseIcon />&nbsp;&nbsp;&nbsp;<DashboardIcon />&nbsp;DASHBOARD&nbsp;<DashboardIcon /> <WarehouseIcon style={{position:'absolute', top:'-1rem', left:'30rem',color:'black', fontSize:'45rem', zIndex:'-1'}} /></h1>
-        <div
-          style={{
-            position: "absolute",
-            width: "13%",
-            height: "1%",
-            border: "2px solid white",
-            top: "105%",
-            left: "1%",
-          }}
-        ></div>
-        <div
-          style={{
-            position: "absolute",
-            width: "11%",
-            height: "1%",
-            border: "2px solid white",
-            top: "120%",
-            left: "1%",
-          }}
-        ></div>
-        <div
-          style={{
-            position: "absolute",
-            width: "9%",
-            height: "1%",
-            border: "2px solid white",
-            top: "135%",
-            left: "1%",
-          }}
-        ></div>
-        <div
-          style={{
-            position: "absolute",
-            width: "6%",
-            height: "1%",
-            border: "2px solid white",
-            top: "150%",
-            left: "1%",
-          }}
-        ></div>
+        <h1><WarehouseIcon />&nbsp;WAREHOUSE&nbsp;<WarehouseIcon />&nbsp;&nbsp;&nbsp;<DashboardIcon />&nbsp;DASHBOARD&nbsp;<DashboardIcon /></h1>
       </nav>
       <div className="side-dash">
         <div className="outer-container">
           <h3 className='my-main-route' onClick={toggleDropdown}>
-            <AssessmentIcon style={{ position: 'absolute', left: '-20%' }} />
-            Super User ( Manager) <br /> (Agent)
+            <AssessmentIcon />&nbsp;Super User (Manager) (Agent)
           </h3>
           {showDropdown && (
-            <>
-          <div className="register-user" onClick={toggleRegistration}>
-            <div>
-              <HowToRegIcon style={{
-                position: 'absolute',
-                left: '-20%',
-                top: '-5%',
-                border: '2px solid white',
-                width: '18px',
-                height: '18px',
-                color: 'rgb(78, 70, 182)',
-                backgroundColor: 'white',
-                borderRadius: '10px'
-              }} />
-            </div>
-            <div style={{ marginLeft: '10px' }}>All Agents</div>
-          </div>
-          {showRegistration && <AllAgents />}
+            <div className="sidebar-menu">
+              <div className="register-user" onClick={toggleRegistration}>
+                <HowToRegIcon style={{
+                  border: '2px solid white',
+                  width: '18px',
+                  height: '18px',
+                  color: 'rgb(78, 70, 182)',
+                  backgroundColor: 'white',
+                  borderRadius: '10px'
+                }} />
+                <span>All Agents</span>
+              </div>
+              {showRegistration && <AllAgents />}
 
-          <div className="All-myUser" onClick={toggleAllusers}>
-            <div>
-              <PeopleAltIcon style={{
-                position: 'absolute',
-                left: '-22%',
-                top: '-5%',
-                border: '2px solid white',
-                width: '18px',
-                height: '18px',
-                color: 'rgb(78, 70, 182)',
-                backgroundColor: 'white',
-                borderRadius: '10px'
-              }} />
-            </div>
-            <div style={{ marginLeft: '10px' }}>All Users</div>
-          </div>
-          {allusers && <AllUsers />}
+              <div className="All-myUser" onClick={toggleAllusers}>
+                <PeopleAltIcon style={{
+                  border: '2px solid white',
+                  width: '18px',
+                  height: '18px',
+                  color: 'rgb(78, 70, 182)',
+                  backgroundColor: 'white',
+                  borderRadius: '10px'
+                }} />
+                <span>All Users</span>
+              </div>
+              {allusers && <AllUsers />}
 
-          <div className="All-myUser" style={{ position: "absolute", top: "16%" }} onClick={toggleAlltransition}>
-            <div>
-              <ProductionQuantityLimitsIcon style={{
-                position: 'absolute',
-                left: '-10%',
-                top: '40%',
-                border: '2px solid white',
-                width: '18px',
-                height: '18px',
-                color: 'rgb(78, 70, 182)',
-                backgroundColor: 'white',
-                borderRadius: '10px'
-              }} />
-            </div>
-            <div style={{ marginLeft: '10px', marginTop:'12px' }}>Products Maniputlation</div>
-          </div>
-          {alltransition && <Products />}
+              <div className="All-myUser" onClick={toggleAlltransition}>
+                <ProductionQuantityLimitsIcon style={{
+                  border: '2px solid white',
+                  width: '18px',
+                  height: '18px',
+                  color: 'rgb(78, 70, 182)',
+                  backgroundColor: 'white',
+                  borderRadius: '10px'
+                }} />
+                <span>Products Manipulation</span>
+              </div>
+              {alltransition && <Products />}
 
-          <div className="All-myUser" style={{ position: "absolute", top: "21%" }} onClick={togglebalance}>
-            <div>
-              <AccountBalanceWalletIcon style={{
-                position: 'absolute',
-                left: '-17%',
-                top: '40%',
-                border: '2px solid white',
-                width: '18px',
-                height: '18px',
-                color: 'rgb(78, 70, 182)',
-                backgroundColor: 'white',
-                borderRadius: '10px'
-              }} />
+              <div className="All-myUser" onClick={togglebalance}>
+                <AccountBalanceWalletIcon style={{
+                  border: '2px solid white',
+                  width: '18px',
+                  height: '18px',
+                  color: 'rgb(78, 70, 182)',
+                  backgroundColor: 'white',
+                  borderRadius: '10px'
+                }} />
+                <span>All Products</span>
+              </div>
+              {userbalance && <AllProducts />}
             </div>
-            <div style={{ marginLeft: '10px', marginTop:'8px'  }}>All Products</div>
-          </div>
-          </>)}
-          {userbalance && <AllProducts />}
+          )}
 
-          <div className="manager-login-bottom" style={{ position: 'absolute', top: '92%', left: '10%' }}>
-            <Button onClick={togglemanagerlogin} style={{ backgroundColor: 'white', color:'black', fontWeight:'bold' }} variant='contained'>Login as Manager</Button>{' '}
+          <div className="manager-login-bottom">
+            <Button onClick={togglemanagerlogin} style={{ backgroundColor: 'white', color: 'black', fontWeight: 'bold' }} variant='contained'>Login as Manager</Button>
           </div>
 
           {managerlogin && <ManagerLogin />}
@@ -210,12 +147,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-
-
-
-
-
-
-
-

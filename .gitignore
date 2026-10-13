@@ -1,0 +1,62 @@
+# ===== Node / npm =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.npm/
+.pnp.*
+.yarn/
+
+# ===== Build 输出 =====
+dist/
+dist-ssr/
+build/
+.next/
+out/
+.nuxt/
+.cache/
+.parcel-cache/
+*.tsbuildinfo
+
+# ===== 环境变量 (本地敏感配置) =====
+.env.local
+.env.*.local
+.env.production
+.env.development.local
+*.env.local
+
+# ===== IDE / 编辑器 =====
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ===== 操作系统 =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== 日志与临时文件 =====
+logs/
+*.log
+*.pid
+*.seed
+*.pid.lock
+pids/
+
+# ===== 测试与覆盖率 =====
+coverage/
+*.lcov
+.nyc_output/
+
+# ===== VS Code 搜索导出 =====
+*.code-search
+
+# ===== Docker / 本地数据 =====
+mongo-data/
+.tmp/

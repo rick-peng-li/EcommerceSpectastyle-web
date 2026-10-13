@@ -31,7 +31,7 @@ const Profile = () => {
 
   // const backendUrl = import.meta.env.REACT_APP_backendUrl || "http://localhost:8000/";
 
-  const backendUrl = "https://ecommerce-backend-0wr7.onrender.com/";
+  const backendUrl = `${import.meta.env.VITE_backendUrl}/`;
 
   const [file, setFile] = useState(null);
 

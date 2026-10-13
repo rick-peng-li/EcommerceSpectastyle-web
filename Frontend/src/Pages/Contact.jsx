@@ -1,8 +1,51 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import "../CSS/Contact.css";
 import { Email, Phone, Store } from "@mui/icons-material";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_backendUrl}/ecommerce/contact`,
+        formData
+      );
+      if (response.status === 201) {
+        toast("Message sent! We will get back to you soon.", {
+          icon: "📩",
+          style: {
+            borderRadius: "rgb(189, 224, 254)",
+            background: "rgb(70, 11, 70)",
+            color: "rgb(255, 210, 255)",
+          },
+        });
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      }
+    } catch (error) {
+      toast("Failed to send message. Please try again.", {
+        icon: "😢",
+        style: {
+          borderRadius: "rgb(189, 224, 254)",
+          background: "rgb(70, 11, 70)",
+          color: "rgb(255, 210, 255)",
+        },
+      });
+    }
+  };
+
   return (
     <Fragment>
       <div className="contact-container">
@@ -84,7 +127,7 @@ const Contact = () => {
         </div>
         <div className="contact-form">
           <h2 className="contact-subheading">Contact Form</h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="form-group">
               <input
                 style={{
@@ -97,6 +140,8 @@ const Contact = () => {
                 id="name"
                 name="name"
                 placeholder="Good Name"
+                value={formData.name}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -107,13 +152,15 @@ const Contact = () => {
                   marginBottom: "-2rem",
                   border: "2px solid rgb(70, 11, 70)",
                   borderRadius: "8px",
-                  fontSize: "16px", // Font size set to 16px
-                  padding: "10px", // Padding set to 10px
+                  fontSize: "16px",
+                  padding: "10px",
                 }}
                 type="email"
                 id="email"
                 name="email"
                 placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -124,13 +171,15 @@ const Contact = () => {
                   marginBottom: "-2rem",
                   border: "2px solid rgb(70, 11, 70)",
                   borderRadius: "8px",
-                  fontSize: "16px", // Font size set to 16px
-                  padding: "10px", // Padding set to 10px
+                  fontSize: "16px",
+                  padding: "10px",
                 }}
-                type="Number"
-                id="email"
-                name="email"
+                type="tel"
+                id="phone"
+                name="phone"
                 placeholder="Phone Number"
+                value={formData.phone}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -141,14 +190,16 @@ const Contact = () => {
                   border: "2px solid rgb(70, 11, 70)",
                   borderRadius: "8px",
                   backgroundColor: "rgb(255, 210, 255)",
-                  fontFamily: "Rubik", // Font type set to Rubik
-                  fontSize: "16px", // Font size set to 16px
-                  padding: "10px", // Padding set to 10px
+                  fontFamily: "Rubik",
+                  fontSize: "16px",
+                  padding: "10px",
                 }}
                 id="message"
                 name="message"
                 placeholder="Your Message"
                 rows="3"
+                value={formData.message}
+                onChange={handleChange}
                 required
               />
             </div>

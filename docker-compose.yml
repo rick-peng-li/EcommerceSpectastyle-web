@@ -3,35 +3,47 @@ version: '3.8'
 services:
   frontend:
     build:
-      context: ./frontend
+      context: ./Frontend
     ports:
       - "5173:5173"
     depends_on:
       - backend
-      - mongodb
     restart: always
     networks:
       - ecommerce-network
-    env_file:
-      - .env
+    environment:
+      VITE_backendUrl: http://localhost:4000
+
+  dashboard:
+    build:
+      context: ./Dashboard/Frontend
+    ports:
+      - "5174:5174"
+    depends_on:
+      - backend
+    restart: always
+    networks:
+      - ecommerce-network
+    environment:
+      VITE_backendUrl: http://localhost:4000
 
   backend:
     build:
-      context: ./backend
+      context: ./Backend
     ports:
       - "4000:4000"
     environment:
       NODE_ENV: development
       MONGO_URL: mongodb://mongodb:27017/ecommerce
       PORT: 4000
-      STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY}
+      SECRET: spectastyle_jwt_secret_key_2026
+      FRONTEND_URL: http://localhost:5173
+      STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY:-}
     depends_on:
       - mongodb
     restart: always
     networks:
       - ecommerce-network
-    env_file:
-      - .env
 
   mongodb:
     image: mongo:6.0

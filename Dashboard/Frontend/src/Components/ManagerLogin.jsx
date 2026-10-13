@@ -37,7 +37,7 @@ const ManagerLogin = () => {
 
     try {
       const response = await axios.post(
-        "https://ecommerce-backend-0wr7.onrender.com/ecommerce/manager/login",
+        `${import.meta.env.VITE_backendUrl}/ecommerce/manager/login`,
         {
           name,
           password,
@@ -61,7 +61,7 @@ const ManagerLogin = () => {
 
     try {
       const response = await axios.post(
-        "https://ecommerce-backend-0wr7.onrender.com/ecommerce/agent/signup",
+        `${import.meta.env.VITE_backendUrl}/ecommerce/agent/signup`,
         {
           agentName,
           agentPassword,
